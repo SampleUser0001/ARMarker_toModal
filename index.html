@@ -26,7 +26,9 @@
     </style>
     <script type="text/javascript">
         function init(){
-            document.getElementById('marker_hiro').addEventListener('click', showModal);
+            // TODO clickじゃない何かのイベント…
+            // markerFound
+            document.getElementById('marker_hiro').addEventListener('markerFound', showModal);
         }
 
         function showModal() {
@@ -60,7 +62,7 @@
 <body style='margin:0px; overflow:hidden;' onload="init()">
     <!-- こっからA-Frame -->
     <a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
-        <a-marker preset="hiro" id="marker_hiro"></a-marker>
+        <a-marker preset="hiro" id="marker_hiro" emitevents="true"></a-marker>
         <!-- arなのでこんな感じでカメラが必要らしい。 -->
         <a-entity camera></a-entity>
     </a-scene>
