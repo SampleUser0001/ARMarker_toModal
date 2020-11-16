@@ -25,11 +25,16 @@
         }
     </style>
     <script type="text/javascript">
-        function init(){
-            // TODO clickじゃない何かのイベント…
-            // markerFound
-            document.getElementById('marker_hiro').addEventListener('markerFound', showModal);
-        }
+        AFRAME.registerComponent('registerevents', {
+            init: function () {
+                var marker = this.el;
+    
+                // マーカーを検出したイベントの登録
+                marker.addEventListener('markerFound', function () {
+                    showModal();
+                });
+            }
+        });
 
         function showModal() {
             // モーダルウィンドウと中身の要素を生成・クラスを付与
@@ -62,7 +67,7 @@
 <body style='margin:0px; overflow:hidden;' onload="init()">
     <!-- こっからA-Frame -->
     <a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
-        <a-marker preset="hiro" id="marker_hiro" emitevents="true"></a-marker>
+        <a-marker preset="hiro" id="marker_hiro" registerevents></a-marker>
         <!-- arなのでこんな感じでカメラが必要らしい。 -->
         <a-entity camera></a-entity>
     </a-scene>
