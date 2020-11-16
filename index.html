@@ -67,7 +67,7 @@
 <body style='margin:0px; overflow:hidden;' onload="init()">
     <!-- こっからA-Frame -->
     <a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
-        <a-marker preset="hiro" id="marker_hiro" registerevents></a-marker>
+        <a-marker preset="hiro" id="marker-hiro" emitevents="true" registerevents></a-marker>
         <!-- arなのでこんな感じでカメラが必要らしい。 -->
         <a-entity camera></a-entity>
     </a-scene>
