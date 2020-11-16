@@ -61,10 +61,14 @@
         function closeModal(modalElement) {
             document.body.removeChild(modalElement);
         }
+
+        function initAlert() {
+            alert('スマートフォンで起動して、hiroマーカーをカメラで映してください。');
+        }
     </script>
 
 </head>
-<body style='margin:0px; overflow:hidden;'>
+<body style='margin:0px; overflow:hidden;' onload='initAlert()'>
     <!-- こっからA-Frame -->
     <a-scene embedded arjs="debugUIEnabled:false;trackingMethod:best;" vr-mode-ui="enabled: false">
         <a-marker preset="hiro" id="marker-hiro" emitevents="true" registerevents></a-marker>
